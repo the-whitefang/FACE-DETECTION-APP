@@ -6,19 +6,23 @@ import android.os.Bundle
 import android.os.Handler
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.databinding.DataBindingUtil
 import com.example.face_detection.Login_Registration.RegisterActivity
 import com.example.face_detection.R
+import com.example.face_detection.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding:ActivityMainBinding
     var i =0
     var progressbar:ProgressBar?=null
     lateinit var progresstext:TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding=DataBindingUtil.
+        setContentView(this,R.layout.activity_main)
 
-        progresstext = findViewById(R.id.progress_text)
-        progressbar = findViewById(R.id.progressbar)
+        progresstext = binding.progressText
+        progressbar = binding.progressbar
 
         val handler = Handler()
         handler.postDelayed(object :Runnable{
